@@ -3,7 +3,8 @@ name: Auto Release
 on:
   push:
     tags:
-      - "v*"  # Runs on tags like v1.0, v2.0, etc.
+      - 'v*'  # Automatically triggers on tag pushes
+  workflow_dispatch:  # Allow manual triggering
 
 jobs:
   release:
@@ -15,7 +16,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Create Tarball
-        run: tar --exclude='./.git' --exclude='./.github' -czvf Slim4-base.tar.gz .
+        run: tar --exclude='./.git' --exclude='./.github' -czvf Slim4-base.tar.gz ./Slim4-base/
 
       - name: Upload Release Asset
         uses: softprops/action-gh-release@v2
