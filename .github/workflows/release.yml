@@ -1,0 +1,27 @@
+name: Auto Release
+
+on:
+  push:
+    tags:
+      - "v*"  # Runs on tags like v1.0, v2.0, etc.
+
+jobs:
+  release:
+    name: Create GitHub Release
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Create Tarball
+        run: tar -czvf my-lamp-project.tar.gz . --exclude=.git --exclude=.github
+
+      - name: Upload Release Asset
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: "Release ${{ github.ref_name }}"
+          files: Slim4-base.tar.gz
+          token: ${{ secrets.GITHUB_TOKEN }}
+          generate_release_notes: true
