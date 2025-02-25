@@ -15,14 +15,10 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Create Tarball
-        run: tar --exclude='./.git' --exclude='./.github' -czvf Slim4-base.tar.gz ./Slim4-base/
-
       - name: Upload Release Asset
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ github.ref_name }}
           name: "Release ${{ github.ref_name }}"
-          files: Slim4-base.tar.gz
           token: ${{ secrets.GITHUB_TOKEN }}
           generate_release_notes: true
