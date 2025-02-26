@@ -1,18 +1,19 @@
-# Project Definitions
-- [Container](./www/config/container.php) 
-This file configures Dependency Injection (DI) by defining and registering services, such as the Slim app instance and template renderer, using a container.
+# Project Definitions  
 
-- [Routes](./www/config/routes.php)
-This file configures what routes to expose and how to processing them.
+- **[Container](./www/config/container.php)**  
+  Defines and registers services for Dependency Injection (DI), including the Slim app instance and the template renderer.  
 
-- [Index](./www/public/index.php)
-This is the entry-point to the site, all it does is run the project's bootstrap
+- **[Routes](./www/config/routes.php)**  
+  Configures the application's routes and defines how requests are processed.  
 
-- [Actions](./www/src/Action/)
-Actions define how and what to render to the link being requested
+- **[Index](./www/public/index.php)**  
+  The main entry point of the application, responsible for bootstrapping and running the project.  
 
-- [Classes](./www/src/Core/)
-Classes for processing backend information
+- **[Actions](./www/src/Action/)**  
+  Handles request processing and determines what content to render for each route.  
 
-- [Templates](./www/templates/)
-Templates are a mostly finished site but allowing you to pass variables to the static files to create dynamic routes.
+- **[Classes](./www/src/Core/)**  
+  Contains backend logic and utility classes for data processing.  
+
+- **[Templates](./www/templates/)**  
+  Provides HTML templates with support for dynamic content rendering via variables.  
