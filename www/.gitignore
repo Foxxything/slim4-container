@@ -1,5 +1,0 @@
-composer.phar
-/vendor/
-/config/*.json
-.env
-.idea
